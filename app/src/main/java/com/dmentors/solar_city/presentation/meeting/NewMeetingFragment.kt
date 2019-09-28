@@ -12,6 +12,10 @@ import com.dmentors.solar_city.domain.meeting.Meeting
 import com.dmentors.solar_city.extensions.toast
 import kotlinx.android.synthetic.main.fragment_new_meetings.*
 import kotlinx.android.synthetic.main.recycler_item_meeting.view.*
+import android.graphics.Typeface
+import android.widget.TextView
+import android.content.Context
+import androidx.core.content.res.ResourcesCompat
 
 
 class NewMeetingFragment : BaseFragment<NewMeetingViewModel>() {
@@ -99,16 +103,15 @@ class NewMeetengsAdapter(
             itemView.meetingItemNameET.setText(item.name)
 
 
-            val adapter = ArrayAdapter<String>(
+            val adapter = MyCustomAdapter(
                 itemView.context,
-                android.R.layout.simple_spinner_item,
                 itemView.resources.getStringArray(R.array.meeting_type)
             )
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             itemView.meetingItemTypeSelector.adapter = adapter
 
             itemView.meetingItemCountValue.text =
-                itemView.context.getString(R.string.meeting_item_count_pattern, position)
+                itemView.context.getString(R.string.meeting_item_count_pattern, position + 1)
 
             itemView.meetingItemTypeSelector.setSelection(
                 if (item.type.isNotEmpty()) {
@@ -168,5 +171,56 @@ class NewMeetengsAdapter(
         fun addMeeting(name: String, type: String)
         fun editMeeting(name: String, type: String, position: Int)
         fun removeMeeting(item: Meeting)
+    }
+}
+
+// try this custom adapter for spinner
+class MyCustomAdapter(context: Context, var list: Array<String>) :
+    ArrayAdapter<String>(context, 0, list) {
+    var defaultPosition: Int = 0
+        private set
+
+    fun setDefaultPostion(position: Int) {
+        this.defaultPosition = position
+    }
+
+    override fun getDropDownView(
+        position: Int, convertView: View?,
+        parent: ViewGroup
+    ): View {
+        return getCustomView(position, convertView, parent)
+    }
+
+    override fun getView(position: Int, convertView: View?, parent: ViewGroup): View {
+        return getCustom(position, convertView, parent)
+    }
+
+    fun getCustom(position: Int, convertView: View?, parent: ViewGroup): View {
+
+        val row = LayoutInflater.from(context).inflate(
+            android.R.layout.simple_spinner_item, parent, false
+        )
+        val label = row.findViewById<View>(android.R.id.text1) as TextView
+        val tf = ResourcesCompat.getFont(context, R.font.geometria_regular)
+        label.typeface = tf
+        label.text = list[position]
+
+        return row
+    }
+
+    fun getCustomView(
+        position: Int, convertView: View?,
+        parent: ViewGroup
+    ): View {
+
+        val row = LayoutInflater.from(context).inflate(
+            android.R.layout.simple_spinner_item, parent, false
+        )
+        val label = row.findViewById<View>(android.R.id.text1) as TextView
+        val tf = ResourcesCompat.getFont(context, R.font.geometria_regular)
+        label.typeface = tf
+        label.text = list[position]
+
+        return row
     }
 }

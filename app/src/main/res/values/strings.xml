@@ -1,5 +1,6 @@
 <resources>
-    <string name="app_name">Arch</string>
+    <string name="app_name">SolarCity</string>
+
     <string name="internet_error_message">Ошибка соединения. Проверьте адрес сервера и/или подключение к сети</string>
     <string name="http_error_message">Произошла ошибка. Попробуйте повторить позднее</string>
     <string name="sign_in_register_profile">Хочу стать наставником!</string>

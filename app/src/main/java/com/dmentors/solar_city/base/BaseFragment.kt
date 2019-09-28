@@ -49,4 +49,13 @@ abstract class BaseFragment<T : BaseViewModel> : DaggerFragment() {
         disposables.clear()
         super.onDestroy()
     }
+
+    open fun onBackPressed() : Boolean {
+        return if (childFragmentManager.backStackEntryCount > 0) {
+            childFragmentManager.popBackStack()
+            false
+        } else {
+            true
+        }
+    }
 }
