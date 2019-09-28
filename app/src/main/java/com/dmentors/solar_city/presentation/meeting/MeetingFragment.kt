@@ -3,6 +3,7 @@ package com.dmentors.solar_city.presentation.meeting
 import androidx.lifecycle.Observer
 import com.dmentors.solar_city.R
 import com.dmentors.solar_city.base.BaseFragment
+import com.dmentors.solar_city.base.BaseNavigationActivity
 import com.dmentors.solar_city.domain.meeting.Meeting
 import com.dmentors.solar_city.extensions.toast
 import kotlinx.android.synthetic.main.fragment_meeting.*
@@ -54,7 +55,7 @@ class MeetingFragment : BaseFragment<MeetingFragmentViewModel>(), MeetingCallbac
             viewModel.saveEvent(calendar)
         }
         meetingBackBtn.setOnClickListener {
-            onBackPressed()
+            (activity as BaseNavigationActivity<*>).onBackPressed()
         }
     }
 

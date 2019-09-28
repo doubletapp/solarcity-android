@@ -14,6 +14,7 @@ import com.dmentors.solar_city.presentation.meeting.MeetingFragmentViewModel
 import com.dmentors.solar_city.presentation.meeting.MeetingSelectionViewModel
 import com.dmentors.solar_city.presentation.meeting.NewMeetingViewModel
 import com.dmentors.solar_city.presentation.profile.ProfileViewModel
+import com.dmentors.solar_city.presentation.reports.ReportsViewModel
 import com.dmentors.solar_city.presentation.recommendation.RecommendationViewModel
 import com.dmentors.solar_city.presentation.signIn.SignInViewModel
 import dagger.Module
@@ -89,4 +90,10 @@ class ViewModelModule {
     @ViewModelKey(RecommendationViewModel::class)
     fun bindRecommendationViewModel(): ViewModel =
         RecommendationViewModel()
+
+    @Provides
+    @IntoMap
+    @ViewModelKey(ReportsViewModel::class)
+    fun bindReportsViewModel(): ViewModel =
+        ReportsViewModel()
 }

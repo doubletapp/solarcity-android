@@ -15,4 +15,5 @@
     <color name="white">#FFFFFF</color>
     <color name="white_pressed">#33000000</color>
     <color name="article_image_overlay">#33000000</color>
+    <color name="cloudyBlueCard">#D0DAE4</color>
 </resources>
