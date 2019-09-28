@@ -11,6 +11,7 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/AppTheme">
         <activity android:name="com.dmentors.solar_city.view.SplashActivity">
             <intent-filter>
@@ -19,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name="com.dmentors.solar_city.presentation.main.MainActivity" />
+        <activity android:name="com.dmentors.solar_city.presentation.main.MainActivity"
+            android:windowSoftInputMode="adjustResize"/>
         <activity
             android:name="com.dmentors.solar_city.presentation.signIn.SignInActivity"
             android:windowSoftInputMode="adjustPan" />

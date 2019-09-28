@@ -4,8 +4,10 @@ import androidx.lifecycle.ViewModelProviders
 import com.dmentors.solar_city.di.ViewModelFactory
 import com.dmentors.solar_city.presentation.blog.BlogFragment
 import com.dmentors.solar_city.presentation.blog.BlogViewModel
-import com.dmentors.solar_city.presentation.just.JustViewModel
-import com.dmentors.solar_city.presentation.just.JustFragment
+import com.dmentors.solar_city.presentation.chat.ChatFragment
+import com.dmentors.solar_city.presentation.chat.ChatViewModel
+import com.dmentors.solar_city.presentation.chat.ChatsFragment
+import com.dmentors.solar_city.presentation.chat.ChatsViewModel
 import com.dmentors.solar_city.presentation.profile.ProfileFragment
 import com.dmentors.solar_city.presentation.profile.ProfileViewModel
 import dagger.Module
@@ -13,13 +15,6 @@ import dagger.Provides
 
 @Module
 class FragmentViewModelModule {
-
-    @Provides
-    fun provideJustViewModel(
-        viewModelFactory: ViewModelFactory,
-        justFragment: JustFragment
-    ): JustViewModel =
-        ViewModelProviders.of(justFragment, viewModelFactory).get(JustViewModel::class.java)
 
     @Provides
     fun provideProfileViewModel(
@@ -34,4 +29,18 @@ class FragmentViewModelModule {
         fragment: BlogFragment
     ): BlogViewModel =
         ViewModelProviders.of(fragment, viewModelFactory).get(BlogViewModel::class.java)
+
+    @Provides
+    fun provideChatsViewModel(
+        viewModelFactory: ViewModelFactory,
+        fragment: ChatsFragment
+    ): ChatsViewModel =
+        ViewModelProviders.of(fragment, viewModelFactory).get(ChatsViewModel::class.java)
+
+    @Provides
+    fun provideChatViewModel(
+        viewModelFactory: ViewModelFactory,
+        fragment: ChatFragment
+    ): ChatViewModel =
+        ViewModelProviders.of(fragment, viewModelFactory).get(ChatViewModel::class.java)
 }
