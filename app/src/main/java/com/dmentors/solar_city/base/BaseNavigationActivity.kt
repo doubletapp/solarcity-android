@@ -9,7 +9,9 @@ import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.dmentors.solar_city.R
 import com.dmentors.solar_city.presentation.blog.BlogFragment
+import com.dmentors.solar_city.presentation.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_navigation.*
+import kotlinx.android.synthetic.main.navigationdrawer.*
 import kotlinx.android.synthetic.main.titlebar.*
 
 abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
@@ -29,8 +31,7 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
         if (savedInstanceState == null) {
             supportFragmentManager
                 .beginTransaction()
-                .replace(getFragmentContainerId(), BlogFragment.newInstance())
-                .addToBackStack(BACK_STACK)
+                .replace(getFragmentContainerId(), ProfileFragment.newInstance())
                 .commit()
         }
         titlebarMenu.setOnClickListener {
@@ -41,6 +42,20 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
             addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
             decorView.systemUiVisibility = decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             statusBarColor = Color.TRANSPARENT
+        }
+        navigationProfile.setOnClickListener {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(getFragmentContainerId(), ProfileFragment.newInstance())
+                .commitNow()
+            closeDrawer()
+        }
+        navigationFeed.setOnClickListener {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(getFragmentContainerId(), BlogFragment.newInstance())
+                .commitNow()
+            closeDrawer()
         }
     }
 
