@@ -4,7 +4,8 @@ import androidx.lifecycle.ViewModel
 import com.dmentors.solar_city.domain.just.JustInteractor
 import com.dmentors.solar_city.domain.main.MainInteractor
 import com.dmentors.solar_city.presentation.blog.BlogViewModel
-import com.dmentors.solar_city.presentation.just.JustViewModel
+import com.dmentors.solar_city.presentation.chat.ChatViewModel
+import com.dmentors.solar_city.presentation.chat.ChatsViewModel
 import com.dmentors.solar_city.presentation.main.MainViewModel
 import com.dmentors.solar_city.presentation.profile.ProfileViewModel
 import com.dmentors.solar_city.presentation.signIn.SignInViewModel
@@ -24,12 +25,6 @@ class ViewModelModule {
 
     @Provides
     @IntoMap
-    @ViewModelKey(JustViewModel::class)
-    fun bindJustViewModel(justInteractor: JustInteractor): ViewModel =
-        JustViewModel(justInteractor)
-
-    @Provides
-    @IntoMap
     @ViewModelKey(SignInViewModel::class)
     fun bindSignInViewModel(): ViewModel =
         SignInViewModel()
@@ -45,4 +40,16 @@ class ViewModelModule {
     @ViewModelKey(BlogViewModel::class)
     fun bindBlogViewModel(): ViewModel =
         BlogViewModel()
+
+    @Provides
+    @IntoMap
+    @ViewModelKey(ChatsViewModel::class)
+    fun bindChatsViewModel(): ViewModel =
+        ChatsViewModel()
+
+    @Provides
+    @IntoMap
+    @ViewModelKey(ChatViewModel::class)
+    fun bindChatViewModel(): ViewModel =
+        ChatViewModel()
 }
