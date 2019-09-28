@@ -6,7 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import com.dmentors.solar_city.R
 import com.dmentors.solar_city.base.BaseFragment
+import com.dmentors.solar_city.base.BaseNavigationActivity
 import com.dmentors.solar_city.base.GlideApp
+import com.dmentors.solar_city.presentation.calendar.CalendarFragment
+import com.dmentors.solar_city.presentation.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : BaseFragment<ProfileViewModel>() {
@@ -22,5 +25,14 @@ class ProfileFragment : BaseFragment<ProfileViewModel>() {
             .load("https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/21/10/avatar-neytiri.jpg")
             .centerCrop()
             .into(profileAvatar)
+
+        profileCalendarButton.setOnClickListener {
+            (activity as MainActivity)
+                .replaceFragment(
+                    CalendarFragment.newInstance(),
+                    (activity as BaseNavigationActivity<*>).getFragmentContainerId(),
+                    CalendarFragment.TAG
+                )
+        }
     }
 }

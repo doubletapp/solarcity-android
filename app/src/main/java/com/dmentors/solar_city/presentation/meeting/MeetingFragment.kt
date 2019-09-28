@@ -4,6 +4,7 @@ import androidx.lifecycle.Observer
 import com.dmentors.solar_city.R
 import com.dmentors.solar_city.base.BaseFragment
 import com.dmentors.solar_city.domain.meeting.Meeting
+import com.dmentors.solar_city.extensions.toast
 import kotlinx.android.synthetic.main.fragment_meeting.*
 import java.util.*
 
@@ -53,7 +54,7 @@ class MeetingFragment : BaseFragment<MeetingFragmentViewModel>(), MeetingCallbac
             viewModel.saveEvent(calendar)
         }
         meetingBackBtn.setOnClickListener {
-            //parentFragment
+            onBackPressed()
         }
     }
 

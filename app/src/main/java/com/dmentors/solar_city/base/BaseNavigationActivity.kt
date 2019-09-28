@@ -21,7 +21,7 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
     }
 
     protected abstract fun getFragment(): Fragment
-    protected open fun getFragmentContainerId(): Int = R.id.fragment_container
+    open fun getFragmentContainerId(): Int = R.id.fragment_container
 
     override fun getLayoutId(): Int = R.layout.activity_navigation
 
@@ -40,7 +40,8 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
         window.apply {
             clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            decorView.systemUiVisibility = decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
+            decorView.systemUiVisibility =
+                decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
             statusBarColor = Color.TRANSPARENT
         }
         navigationProfile.setOnClickListener {
@@ -89,5 +90,12 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
 
     protected fun unBlockDrawer() {
         navigationDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN)
+    }
+
+    override fun onBackPressed() {
+        if (supportFragmentManager.findFragmentById(getFragmentContainerId()) != null
+            && (supportFragmentManager.findFragmentById(getFragmentContainerId()) as BaseFragment<*>).onBackPressed()) {
+            super.onBackPressed()
+        }
     }
 }

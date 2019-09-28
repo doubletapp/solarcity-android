@@ -26,9 +26,5 @@ class BlogFragment : BaseFragment<BlogViewModel>() {
         super.onViewCreated(view, savedInstanceState)
         blogRecycler.adapter = blogAdapter
         blogAdapter.submitList(Mocker.mockBlog())
-        blogAdd.setOnClickListener {
-            (activity as MainActivity)
-                .replaceFragment(CalendarFragment.newInstance(), android.R.id.content, "Calendar")
-        }
     }
 }

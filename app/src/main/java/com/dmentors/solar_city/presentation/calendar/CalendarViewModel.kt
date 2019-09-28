@@ -18,11 +18,11 @@ class CalendarViewModel(
     private val mutablePastEventsData = MutableLiveData<List<EventDay>>()
     val pastEventsData: LiveData<List<EventDay>> get() = mutablePastEventsData
 
-    private val mutableFutureEventsData = MutableLiveData<List<Calendar>>()
-    val pastFutureData: LiveData<List<Calendar>> get() = mutableFutureEventsData
+    private val mutableFutureEventsData = MutableLiveData<List<EventDay>>()
+    val pastFutureData: LiveData<List<EventDay>> get() = mutableFutureEventsData
 
-    private val mutableEventInfoData = MutableLiveData<Event>()
-    val eventInfoData: LiveData<Event> get() = mutableEventInfoData
+    private val mutableEventInfoData = MutableLiveData<Event?>()
+    val eventInfoData: LiveData<Event?> get() = mutableEventInfoData
 
     private val mutableOpenAddEventData = MutableLiveData<Void>()
     val openAddEventData: LiveData<Void> get() = mutableOpenAddEventData
@@ -31,12 +31,11 @@ class CalendarViewModel(
 
     fun getEvents() {
         val past = mutableListOf<EventDay>()
-        val future = mutableListOf<Calendar>()
         val currTime = Calendar.getInstance().timeInMillis
         //TODO Mock
         events.add(
             Event(
-                eventDate = currTime + TimeUnit.DAYS.toMillis(2),
+                eventDate = currTime - TimeUnit.DAYS.toMillis(2),
                 meetingsList = listOf(
                     Meeting(
                         "Встреча на ипподроме",
@@ -46,27 +45,30 @@ class CalendarViewModel(
                 )
             )
         )
-        events.add(Event(
-            eventDate = currTime - TimeUnit.DAYS.toMillis(2),
-            meetingsList = listOf(
-                Meeting(
-                    "Обучение наставников",
-                    "Встреча",
-                    false
+        events.add(
+            Event(
+                eventDate = currTime + TimeUnit.DAYS.toMillis(2),
+                meetingsList = listOf(
+                    Meeting(
+                        "Обучение наставников",
+                        "Встреча",
+                        false
+                    )
                 )
             )
-        ))
+        )
         events.forEach {
             val calendar = Calendar.getInstance()
             calendar.timeInMillis = it.eventDate
-            if (currTime > calendar.timeInMillis) {
-                past.add(EventDay(calendar, R.drawable.ic_dot))
-            } else {
-                future.add(calendar)
-            }
+
+            past.add(
+                if (currTime > calendar.timeInMillis) {
+                    EventDay(calendar, R.drawable.ic_dot_past)
+                } else {
+                    EventDay(calendar, R.drawable.ic_dot_current)
+                })
         }
         mutablePastEventsData.postValue(past)
-        mutableFutureEventsData.postValue(future)
     }
 
     fun onDayClicked(calendar: Calendar) {
@@ -77,6 +79,8 @@ class CalendarViewModel(
                     calendar.get(Calendar.YEAR) == dayCalendar.get(Calendar.YEAR)
         }?.let {
             mutableEventInfoData.postValue(it)
+        } ?: kotlin.run {
+            mutableEventInfoData.postValue(null)
         }
     }
 }

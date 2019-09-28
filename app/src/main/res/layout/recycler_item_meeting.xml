@@ -95,13 +95,12 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@drawable/background_stroke_terracote">
+                android:background="@drawable/bg_stroke_terracote_30">
 
                 <Spinner
                     android:id="@+id/meetingItemTypeSelector"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-
                     android:layout_marginStart="16dp" />
 
             </FrameLayout>
@@ -131,7 +130,7 @@
             <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
-                android:background="@drawable/background_stroke_terracote">
+                android:background="@drawable/bg_stroke_terracote_30">
 
                 <AutoCompleteTextView
                     android:id="@+id/meetingItemNameET"
@@ -139,6 +138,7 @@
                     android:layout_height="match_parent"
                     android:layout_marginHorizontal="16dp"
                     android:background="@null"
+                    android:fontFamily="@font/geometria_regular"
                     android:hint="@string/meeting_item_select_name_hint" />
 
             </FrameLayout>

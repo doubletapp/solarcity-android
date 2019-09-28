@@ -4,6 +4,7 @@
     <color name="colorPrimaryDark">@color/desert</color>
     <color name="colorAccent">@color/desert</color>
     <color name="terracota">#C0644f</color>
+    <color name="terracota30">#4DC0644F</color>
     <color name="desert">#DEB14C</color>
     <color name="desert_ripple">#b8933f</color>
     <color name="cloudyBlue">#ABBFD5</color>
