@@ -1,0 +1,68 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+
+    <style name="geometria_med_30">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:fontFamily">@font/geometria_medium</item>
+    </style>
+
+    <style name="geometria_med_24">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">@color/textColorGray</item>
+        <item name="android:fontFamily">@font/geometria_medium</item>
+    </style>
+
+    <style name="geometria_med_18">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textColorGray</item>
+        <item name="android:fontFamily">@font/geometria_medium</item>
+    </style>
+
+    <style name="geometria_reg_18">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/textColorGray</item>
+        <item name="android:fontFamily">@font/geometria_regular</item>
+    </style>
+
+    <style name="geometria_reg_16">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/textColorGray</item>
+        <item name="android:fontFamily">@font/geometria_regular</item>
+    </style>
+
+    <style name="geometria_med_14_terracota">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/terracota</item>
+        <item name="android:fontFamily">@font/geometria_medium</item>
+    </style>
+
+    <style name="geometria_med_14">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/textColorGray</item>
+        <item name="android:fontFamily">@font/geometria_medium</item>
+    </style>
+
+    <style name="ButtonDesert" parent="Widget.AppCompat.Button.Borderless.Colored">
+        <item name="android:background">@drawable/background_selector_r25</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:paddingStart">40dp</item>
+        <item name="android:paddingEnd">40dp</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:fontFamily">@font/geometria_medium</item>
+    </style>
+
+    <style name="ButtonDesertLarge" parent="ButtonDesert">
+        <item name="android:layout_width">270dp</item>
+    </style>
+</resources>

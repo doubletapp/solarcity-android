@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/img_splash" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/img_splash_bottom" />
+
+    <!-- first container -->
+    <LinearLayout
+        android:id="@+id/signInBtnContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="83dp"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="18dp"
+            android:fontFamily="@font/geometria_medium"
+            android:gravity="center_horizontal"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/sign_in_welcome_txt"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signInRegisterBtn"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="10dp"
+            android:elevation="7dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/geometria_medium"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/sign_in_register_profile"
+                android:textColor="@color/textColorGray"
+                android:textSize="16sp" />
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/signInShowPhoneInputBtn"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_margin="8dp"
+            android:elevation="7dp"
+            android:foreground="?android:attr/selectableItemBackground"
+            app:cardCornerRadius="15dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:fontFamily="@font/geometria_medium"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="4sp"
+                android:text="@string/sign_in_show_form"
+                android:textColor="@color/textColorGray"
+                android:textSize="16sp" />
+
+        </androidx.cardview.widget.CardView>
+
+    </LinearLayout>
+
+    <!-- second container -->
+
+    <LinearLayout
+        android:id="@+id/signInPhoneContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="83dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/geometria_medium"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/sign_in_txt"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            style="@style/geometria_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:text="@string/sign_in_phone_hint_txt" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.4"
+            android:background="@drawable/background_stroke_terracote">
+
+            <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/signInPhone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="12dp"
+                android:background="@null"
+                android:hint="__________"
+                android:inputType="phone"
+                android:typeface="monospace"
+                app:allowed_chars="1234567890"
+                app:keep_hint="true"
+                app:mask="+7 ### ### ## ##" />
+
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/signInSendSmsBtn"
+            style="@style/ButtonDesertLarge"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:enabled="false"
+            android:text="@string/sign_in_send_code"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+    <!-- third container -->
+
+    <LinearLayout
+        android:id="@+id/signInCodeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="37dp"
+        android:layout_marginEnd="37dp"
+        android:layout_marginBottom="83dp"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:fontFamily="@font/geometria_medium"
+            android:lineSpacingExtra="6sp"
+            android:text="@string/sign_in_code_txt"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="24sp" />
+
+        <TextView
+            style="@style/geometria_med_14"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="14dp"
+            android:text="@string/sign_in_code_hint_txt" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.4"
+            android:background="@drawable/background_stroke_terracote">
+
+            <br.com.sapereaude.maskedEditText.MaskedEditText
+                android:id="@+id/signInCode"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="12dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="12dp"
+                android:background="@null"
+                android:hint="****"
+                android:inputType="phone"
+                android:typeface="monospace"
+                app:allowed_chars="1234567890"
+                app:keep_hint="true"
+                app:mask="####" />
+
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/signInLoginBtn"
+            style="@style/ButtonDesertLarge"
+            android:layout_gravity="center"
+            android:layout_marginTop="12dp"
+            android:text="@string/sign_in_login"
+            android:textAllCaps="false" />
+
+    </LinearLayout>
+
+    <FrameLayout
+        android:id="@+id/signInProgress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"/>
+
+    </FrameLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

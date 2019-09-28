@@ -1,0 +1,347 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="24dp"
+    android:clipToPadding="false"
+    android:background="@drawable/bg_profile">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:clipToPadding="false"
+            android:paddingBottom="16dp">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/profileLeftGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_begin="16dp" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/profileRightGuideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="16dp" />
+
+            <ImageView
+                android:id="@+id/profileAvatarBackground"
+                android:layout_width="110.1dp"
+                android:layout_height="111.3dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="?attr/actionBarSize"
+                android:src="@drawable/bg_photo"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/profileAvatar"
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="11dp"
+                android:layout_marginEnd="8.1dp"
+                android:layout_marginBottom="10.3dp"
+                app:layout_constraintBottom_toBottomOf="@id/profileAvatarBackground"
+                app:layout_constraintEnd_toEndOf="@id/profileAvatarBackground"
+                app:layout_constraintStart_toStartOf="@id/profileAvatarBackground"
+                app:layout_constraintTop_toTopOf="@id/profileAvatarBackground"
+                app:riv_corner_radius="45dp"
+                tools:src="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/profileUserName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="28.9dp"
+                android:layout_marginEnd="10dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/geometria_medium"
+                android:maxLines="2"
+                android:text="Валерия Баркова"
+                android:textColor="@color/textColorGray"
+                android:textSize="18sp"
+                app:layout_constraintBottom_toTopOf="@id/profileCity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/profileAvatarBackground"
+                app:layout_constraintTop_toTopOf="@id/profileAvatarBackground"
+                app:layout_constraintVertical_chainStyle="packed" />
+
+            <TextView
+                android:id="@+id/profileCity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:ellipsize="end"
+                android:fontFamily="@font/geometria_medium"
+                android:maxLines="1"
+                android:text="г. Новосибирск"
+                android:textColor="@color/textColorGray"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toTopOf="@id/profileAge"
+                app:layout_constraintEnd_toEndOf="@id/profileUserName"
+                app:layout_constraintStart_toStartOf="@id/profileUserName"
+                app:layout_constraintTop_toBottomOf="@id/profileUserName" />
+
+            <TextView
+                android:id="@+id/profileAge"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:fontFamily="@font/geometria_medium"
+                android:maxLines="1"
+                android:text="26 лет"
+                android:textColor="@color/textColorLightGray"
+                app:layout_constraintBottom_toBottomOf="@id/profileAvatarBackground"
+                app:layout_constraintEnd_toEndOf="@id/profileUserName"
+                app:layout_constraintStart_toStartOf="@id/profileUserName"
+                app:layout_constraintTop_toBottomOf="@id/profileCity" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profileNearestMeetingCard"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10.7dp"
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="20dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profileAvatarBackground">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/profileNearestMeetingTitle"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="18dp"
+                        android:layout_marginEnd="10dp"
+                        android:ellipsize="end"
+                        android:fontFamily="@font/geometria_medium"
+                        android:maxLines="2"
+                        android:text="Ближайшая встреча:"
+                        android:textColor="@color/textColorGray"
+                        android:textSize="16sp"
+                        app:layout_constraintBottom_toBottomOf="@id/profileNearestMeetingLayout"
+                        app:layout_constraintEnd_toStartOf="@id/profileNearestMeetingLayout"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/profileNearestMeetingLayout" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="3dp"
+                        android:src="@drawable/dotted_line"
+                        app:layout_constraintBottom_toBottomOf="@id/profileNearestMeetingLayout"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/profileNearestMeetingLayout"
+                        android:layout_width="wrap_content"
+                        android:layout_height="55dp"
+                        android:background="@drawable/bg_nearest_meeting"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent">
+
+                        <TextView
+                            android:id="@+id/profileNearestMeetingDay"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="35dp"
+                            android:layout_marginTop="4dp"
+                            android:fontFamily="@font/geometria_medium"
+                            android:includeFontPadding="false"
+                            android:text="7"
+                            android:textColor="@color/white"
+                            android:textSize="30sp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <TextView
+                            android:id="@+id/profileNearestMeetingMonth"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="3dp"
+                            android:layout_marginEnd="27dp"
+                            android:layout_marginBottom="3dp"
+                            android:fontFamily="@font/geometria_medium"
+                            android:includeFontPadding="false"
+                            android:text="АВГ"
+                            android:textColor="@color/white"
+                            android:textSize="16sp"
+                            app:layout_constraintBottom_toBottomOf="@id/profileNearestMeetingDay"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@id/profileNearestMeetingDay" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <LinearLayout
+                        android:id="@+id/profileNearestMeetingCheckBoxes"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/profileNearestMeetingLayout">
+
+                        <com.dmentors.solar_city.view.CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="true"
+                            android:text="Боулинг клуб «Луна»"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/profileNearestMeetingLayout" />
+
+                        <com.dmentors.solar_city.view.CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="Прогулка в парке "
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/profileNearestMeetingLayout" />
+
+                        <com.dmentors.solar_city.view.CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:checked="false"
+                            android:text="Посещение аквариума"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/profileNearestMeetingLayout" />
+
+                    </LinearLayout>
+
+                    <com.dmentors.solar_city.view.UnderlineTextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_profile_white_selectable"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:fontFamily="@font/geometria_medium"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="25dp"
+                        android:text="Весь список"
+                        android:textColor="@color/terracota"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/profileNearestMeetingCheckBoxes" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <Button
+                android:id="@+id/profileCalendarButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:background="@drawable/bg_yellow_button_20"
+                android:drawableLeft="@drawable/ic_calendar"
+                android:drawablePadding="30dp"
+                android:fontFamily="@font/geometria_medium"
+                android:gravity="start"
+                android:lineSpacingExtra="4sp"
+                android:lines="2"
+                android:paddingHorizontal="50dp"
+                android:paddingVertical="30dp"
+                android:text="Календарь встречь с ребенком"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/profileRightGuideline"
+                app:layout_constraintStart_toStartOf="@id/profileLeftGuideline"
+                app:layout_constraintTop_toBottomOf="@id/profileNearestMeetingCard" />
+
+            <Button
+                android:id="@+id/profileHistoryButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:layout_marginEnd="19dp"
+                android:background="@drawable/bg_white_button_20"
+                android:drawableTop="@drawable/ic_history"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/geometria_regular"
+                android:lineSpacingExtra="2sp"
+                android:paddingVertical="14dp"
+                android:text="История\nотчетов"
+                android:textAllCaps="false"
+                android:textColor="@color/textColorGrayButton"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@id/profileFavoritesButton"
+                app:layout_constraintStart_toStartOf="@id/profileLeftGuideline"
+                app:layout_constraintTop_toBottomOf="@id/profileCalendarButton" />
+
+            <Button
+                android:id="@+id/profileFavoritesButton"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_white_button_20"
+                android:drawableTop="@drawable/ic_favorite"
+                android:drawablePadding="10dp"
+                android:fontFamily="@font/geometria_regular"
+                android:lineSpacingExtra="2sp"
+                android:paddingVertical="14dp"
+                android:text="Избранные\nстатьи"
+                android:textAllCaps="false"
+                android:textColor="@color/textColorGrayButton"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@id/profileRightGuideline"
+                app:layout_constraintStart_toEndOf="@id/profileHistoryButton"
+                app:layout_constraintTop_toTopOf="@id/profileHistoryButton" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ImageView
+        android:id="@+id/profileNotification"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_bell"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/profileEdit"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toStartOf="@id/profileNotification"
+        app:layout_constraintTop_toTopOf="@id/profileNotification"
+        app:layout_constraintBottom_toBottomOf="@id/profileNotification"
+        tools:ignore="ContentDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

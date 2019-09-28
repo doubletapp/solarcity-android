@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Arch</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="internet_error_message">Ошибка соединения. Проверьте адрес сервера и/или подключение к сети</string>
+    <string name="http_error_message">Произошла ошибка. Попробуйте повторить позднее</string>
+    <string name="sign_in_register_profile">Хочу стать наставником!</string>
+    <string name="sign_in_login">Войти как наставник</string>
+    <string name="sign_in_show_form">Я уже наставник</string>
+    <string name="sign_in_send_code">Отправить код</string>
+    <string name="sign_in_wrong_code">Неверный код. Введите 1111</string>
+    <string name="sign_in_welcome_txt">добро\nпожаловать</string>
+    <string name="sign_in_code_title">Код доступа</string>
+    <string name="sign_in_txt">Войти</string>
+    <string name="sign_in_phone_hint_txt">Введите ваш номер телефона</string>
+    <string name="sign_in_code_txt">Код доступа</string>
+    <string name="sign_in_code_hint_txt">Введите код из sms</string>
+</resources>

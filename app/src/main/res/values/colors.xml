@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/desert</color>
+    <color name="colorPrimaryDark">@color/desert</color>
+    <color name="colorAccent">@color/desert</color>
+    <color name="terracota">#C0644f</color>
+    <color name="desert">#DEB14C</color>
+    <color name="desert_ripple">#b8933f</color>
+    <color name="cloudyBlue">#ABBFD5</color>
+    <color name="veryLightPink">#bbbbbb</color>
+    <color name="textColorGray">#272727</color>
+    <color name="textColorGrayButton">#de272727</color>
+    <color name="textColorLightGray">#33272727</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_pressed">#33000000</color>
+    <color name="article_image_overlay">#33000000</color>
+</resources>

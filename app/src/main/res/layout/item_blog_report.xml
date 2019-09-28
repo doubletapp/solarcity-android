@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:id="@+id/itemBlogReportClick"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <ImageView
+        android:layout_width="0dp"
+        android:layout_height="3dp"
+        android:layout_marginHorizontal="16dp"
+        android:src="@drawable/dotted_line"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/itemBlogReportAvatar"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="22dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:riv_corner_radius="20dp"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/itemBlogReportUserName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:fontFamily="@font/geometria_regular"
+        android:textColor="@color/textColorGray"
+        android:textSize="16sp"
+        app:layout_constraintStart_toEndOf="@id/itemBlogReportAvatar"
+        app:layout_constraintTop_toTopOf="@id/itemBlogReportAvatar"
+        tools:text="Анастасия Землянова " />
+
+    <ImageView
+        android:id="@+id/itemBlogReportMapPin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toStartOf="@id/itemBlogReportLocation"
+        android:layout_marginStart="15dp"
+        android:src="@drawable/ic_location_pin"
+        app:layout_constraintBottom_toBottomOf="@id/itemBlogReportAvatar"
+        app:layout_constraintStart_toEndOf="@id/itemBlogReportAvatar" />
+
+    <TextView
+        android:id="@+id/itemBlogReportLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/terracota"
+        android:layout_marginStart="3dp"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@id/itemBlogReportAvatar"
+        app:layout_constraintStart_toEndOf="@id/itemBlogReportMapPin"
+        tools:text="Картинг на Ленина" />
+
+    <TextView
+        android:id="@+id/itemBlogReportText"
+        android:textSize="14sp"
+        android:textColor="@color/textColorGray"
+        android:fontFamily="@font/geometria_regular"
+        android:lineSpacingExtra="6sp"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="20dp"
+        android:layout_marginTop="14dp"
+        tools:text="В статье рассматриваются проблемы социальной адаптации и постинтернатного сопровождения выпускников детских домов."
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemBlogReportImage"/>
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/itemBlogReportImage"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginHorizontal="16dp"
+        android:scaleType="centerCrop"
+        app:riv_corner_radius="15dp"
+        tools:src="@tools:sample/backgrounds/scenic"
+        app:layout_constraintDimensionRatio="1:1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/itemBlogReportAvatar"/>
+
+    <TextView
+        android:id="@+id/itemBlogReportDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="15dp"
+        android:textSize="14sp"
+        android:textColor="@color/textColorLightGray"
+        android:lineSpacingExtra="3sp"
+        tools:text="14 сентября"
+        app:layout_constraintTop_toBottomOf="@id/itemBlogReportText"
+        app:layout_constraintStart_toStartOf="@id/itemBlogReportImage"/>
+
+    <TextView
+        android:id="@+id/itemBlogReportLikeCounter"
+        android:textSize="14sp"
+        android:textColor="@color/textColorGray"
+        android:fontFamily="@font/geometria_regular"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:translationX="8dp"
+        tools:text="15"
+        app:layout_constraintTop_toTopOf="@id/itemBlogReportLike"
+        app:layout_constraintBottom_toBottomOf="@id/itemBlogReportLike"
+        app:layout_constraintEnd_toStartOf="@id/itemBlogReportLike"/>
+
+    <ImageView
+        android:id="@+id/itemBlogReportLike"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_like_red"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="20dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintTop_toTopOf="@id/itemBlogReportDate"
+        app:layout_constraintBottom_toBottomOf="@id/itemBlogReportDate"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_star"
+        android:layout_marginEnd="5dp"
+        app:layout_constraintEnd_toStartOf="@id/itemBlogReportRating"
+        app:layout_constraintTop_toTopOf="@id/itemBlogReportRating"
+        app:layout_constraintBottom_toBottomOf="@id/itemBlogReportRating"/>
+
+    <TextView
+        android:id="@+id/itemBlogReportRating"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/geometria_medium"
+        android:textSize="14sp"
+        android:layout_marginEnd="3dp"
+        app:layout_constraintBottom_toBottomOf="@id/itemBlogReportLocation"
+        app:layout_constraintTop_toTopOf="@id/itemBlogReportUserName"
+        app:layout_constraintEnd_toEndOf="@id/itemBlogReportImage"
+        android:textColor="@color/desert"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
