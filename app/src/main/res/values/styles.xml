@@ -65,4 +65,9 @@
     <style name="ButtonDesertLarge" parent="ButtonDesert">
         <item name="android:layout_width">270dp</item>
     </style>
+
+    <style name="CalendarStyle">
+        <item name="android:typeface">@font/geometria_medium</item>
+        <item name="android:fontFamily">@font/geometria_medium</item>
+    </style>
 </resources>

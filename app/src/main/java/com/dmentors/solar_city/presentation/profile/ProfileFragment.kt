@@ -10,16 +10,11 @@ import com.dmentors.solar_city.base.GlideApp
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : BaseFragment<ProfileViewModel>() {
+    override fun getLayoutId(): Int = R.layout.fragment_profile
 
     companion object {
         fun newInstance() = ProfileFragment()
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_profile, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

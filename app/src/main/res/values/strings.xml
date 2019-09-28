@@ -13,4 +13,30 @@
     <string name="sign_in_phone_hint_txt">Введите ваш номер телефона</string>
     <string name="sign_in_code_txt">Код доступа</string>
     <string name="sign_in_code_hint_txt">Введите код из sms</string>
+    <string name="done">Готово</string>
+    <string name="meeting_date_txt">Дата встречи</string>
+    <string name="meeting_add_new_txt">Создайте новую встречу</string>
+    <string name="meeting_guideline_txt">Воспользуйтесь нашими рекомендациями</string>
+    <string name="meeting_massive_txt">Присоединяйтесь к коллективным встречам</string>
+    <string name="meeting_item_select_txt">Выберите тип:</string>
+    <string name="meeting_item_select_name_txt">Название:</string>
+    <string name="meeting_item_select_name_hint">Введите название</string>
+    <string name="add">Добавить</string>
+
+    <string name="meeting_type_game">Игра</string>
+    <string name="meeting_type_walk">Прогулка</string>
+    <string name="meeting_type_talk">Беседа</string>
+    <string name="meeting_type_another">Другое</string>
+    <string name="save">Сщхранить</string>
+    <string name="empty_name_error">Заполните название мероприятия</string>
+    <string name="meeting_item_count_pattern">%d мероприятие</string>
+
+    <string name="material_calendar_monday">Пн</string>
+    <string name="material_calendar_tuesday">Вт</string>
+    <string name="material_calendar_wednesday">Ср</string>
+    <string name="material_calendar_thursday">чт</string>
+    <string name="material_calendar_friday">Пт</string>
+    <string name="material_calendar_saturday">Сб</string>
+    <string name="material_calendar_sunday">Вс</string>
+    <string name="calendar_add_meeting">Запланировать встречу</string>
 </resources>

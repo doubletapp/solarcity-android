@@ -1,10 +1,15 @@
 package com.dmentors.solar_city.view
 
 import android.content.Context
+import android.graphics.Typeface
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.TypedValue
+import android.view.View
 import android.widget.CheckBox
+import androidx.core.graphics.TypefaceCompat
+import androidx.core.graphics.TypefaceCompatApi28Impl
+import androidx.core.graphics.drawable.DrawableCompat
 import com.dmentors.solar_city.R
 
 class CheckBox(

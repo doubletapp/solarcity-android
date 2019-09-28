@@ -1,5 +1,7 @@
 package com.dmentors.solar_city.utils
 
+import android.net.Uri
+import com.dmentors.solar_city.R
 import com.dmentors.solar_city.presentation.blog.adapter.BlogItem
 import com.dmentors.solar_city.presentation.blog.adapter.BlogStoryBoardItem
 

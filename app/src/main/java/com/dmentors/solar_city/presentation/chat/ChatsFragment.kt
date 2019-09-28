@@ -9,16 +9,11 @@ import com.dmentors.solar_city.base.BaseFragment
 import kotlinx.android.synthetic.main.fragment_chats.*
 
 class ChatsFragment : BaseFragment<ChatsViewModel>() {
+    override fun getLayoutId(): Int = R.layout.fragment_chats
 
     companion object {
         fun newInstance() = ChatsFragment()
     }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_chats, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

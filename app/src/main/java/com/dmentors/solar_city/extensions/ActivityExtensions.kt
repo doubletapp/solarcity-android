@@ -2,6 +2,7 @@ package com.dmentors.solar_city.extensions
 
 import androidx.annotation.StringRes
 import androidx.fragment.app.Fragment
+import androidx.appcompat.app.AppCompatActivity
 import android.widget.Toast
 import dagger.android.support.DaggerAppCompatActivity
 

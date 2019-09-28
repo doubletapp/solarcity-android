@@ -17,6 +17,7 @@ import kotlinx.android.synthetic.main.fragment_chat.*
 
 
 class ChatFragment : BaseFragment<ChatViewModel>() {
+    override fun getLayoutId(): Int = R.layout.fragment_chat
 
     companion object {
         fun newInstance(title: String) = ChatFragment().apply {
@@ -27,12 +28,6 @@ class ChatFragment : BaseFragment<ChatViewModel>() {
     }
 
     private val chatAdapter by lazy { ChatAdapter() }
-
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View = inflater.inflate(R.layout.fragment_chat, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
