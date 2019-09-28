@@ -66,7 +66,8 @@ class CalendarViewModel(
                     EventDay(calendar, R.drawable.ic_dot_past)
                 } else {
                     EventDay(calendar, R.drawable.ic_dot_current)
-                })
+                }
+            )
         }
         mutablePastEventsData.postValue(past)
     }
@@ -81,6 +82,37 @@ class CalendarViewModel(
             mutableEventInfoData.postValue(it)
         } ?: kotlin.run {
             mutableEventInfoData.postValue(null)
+        }
+    }
+
+    fun eventAdded(event: Event) {
+        events.firstOrNull {
+            val eventCalendar = Calendar.getInstance()
+            eventCalendar.timeInMillis = it.eventDate
+
+            val newEventCalendar = Calendar.getInstance()
+            newEventCalendar.timeInMillis = event.eventDate
+
+            newEventCalendar.get(Calendar.DAY_OF_YEAR) == eventCalendar.get(Calendar.DAY_OF_YEAR) &&
+                    newEventCalendar.get(Calendar.YEAR) == eventCalendar.get(Calendar.YEAR)
+        }?.let {
+            mutableError.postValue(Throwable("Вы можете добавить не более одного мероприятия на деньы"))
+        } ?: run {
+            events.add(event)
+            val past = mutableListOf<EventDay>()
+            val currTime = Calendar.getInstance().timeInMillis
+            events.forEach {
+                val calendar = Calendar.getInstance()
+                calendar.timeInMillis = it.eventDate
+                past.add(
+                    if (currTime > calendar.timeInMillis) {
+                        EventDay(calendar, R.drawable.ic_dot_past)
+                    } else {
+                        EventDay(calendar, R.drawable.ic_dot_current)
+                    }
+                )
+            }
+            mutablePastEventsData.postValue(past)
         }
     }
 }

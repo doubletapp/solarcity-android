@@ -5,6 +5,8 @@ import com.dmentors.solar_city.presentation.meeting.MeetingFragment
 import com.dmentors.solar_city.presentation.meeting.MeetingSelectionFragment
 import com.dmentors.solar_city.presentation.meeting.NewMeetingFragment
 import com.dmentors.solar_city.presentation.blog.BlogFragment
+import com.dmentors.solar_city.presentation.chat.ChatFragment
+import com.dmentors.solar_city.presentation.chat.ChatsFragment
 import com.dmentors.solar_city.presentation.profile.ProfileFragment
 import com.dmentors.solar_city.presentation.reports.ReportsFragment
 import dagger.Module
@@ -31,6 +33,12 @@ abstract class FragmentBindingModule {
 
     @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
     abstract fun bindBlogFragment(): BlogFragment
+
+    @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
+    abstract fun bindChatsFragment(): ChatsFragment
+
+    @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
+    abstract fun bindChatFragment(): ChatFragment
 
     @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
     abstract fun bindReportsFragment(): ReportsFragment

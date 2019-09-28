@@ -4,6 +4,7 @@ import android.view.View
 import androidx.lifecycle.Observer
 import com.dmentors.solar_city.R
 import com.dmentors.solar_city.base.BaseFragment
+import com.dmentors.solar_city.domain.meeting.Event
 import com.dmentors.solar_city.extensions.toast
 import com.dmentors.solar_city.presentation.meeting.MeetingFragment
 import kotlinx.android.synthetic.main.fragment_calendar.*
@@ -29,17 +30,23 @@ class CalendarFragment : BaseFragment<CalendarViewModel>() {
     override fun initViews() {
         calendarView.showCurrentMonthPage()
         calendarView.setOnDayClickListener {
+            calendarAddMeeting.isEnabled =
+                it.calendar.timeInMillis >= Calendar.getInstance().timeInMillis
             viewModel.onDayClicked(it.calendar)
         }
         calendarAddMeeting.setOnClickListener {
-            childFragmentManager
-                .beginTransaction()
-                .replace(
-                    R.id.fragment_container,
-                    MeetingFragment()
+            activity
+                ?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(
+                    android.R.id.content,
+                    MeetingFragment.newInstance(calendarView.firstSelectedDate)
                 )
-                .addToBackStack(BACKSTACK_CALENDAR)
-                .commit()
+                ?.addToBackStack(BACKSTACK_CALENDAR)
+                ?.commit()
+        }
+        calendarBackBtn.setOnClickListener {
+            activity?.onBackPressed()
         }
     }
 
@@ -66,11 +73,6 @@ class CalendarFragment : BaseFragment<CalendarViewModel>() {
                     calendarEventActionBtn.setOnClickListener {
                         toast("Заявка отправлена. Ожидайте подтверждения!")
                     }
-                } else {
-                    calendarEventActionBtn.text = "Отчет"
-                    calendarEventActionBtn.setOnClickListener {
-                        toast("Функционал в разработке")
-                    }
                 }
             } ?: run {
                 calendarEventCard.visibility = View.GONE
@@ -81,5 +83,9 @@ class CalendarFragment : BaseFragment<CalendarViewModel>() {
     override fun onResume() {
         super.onResume()
         viewModel.getEvents()
+    }
+
+    fun eventAdded(event: Event) {
+        viewModel.eventAdded(event)
     }
 }

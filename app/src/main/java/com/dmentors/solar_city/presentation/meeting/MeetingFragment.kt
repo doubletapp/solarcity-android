@@ -6,6 +6,7 @@ import com.dmentors.solar_city.base.BaseFragment
 import com.dmentors.solar_city.base.BaseNavigationActivity
 import com.dmentors.solar_city.domain.meeting.Meeting
 import com.dmentors.solar_city.extensions.toast
+import com.dmentors.solar_city.presentation.calendar.CalendarFragment
 import kotlinx.android.synthetic.main.fragment_meeting.*
 import java.util.*
 
@@ -55,13 +56,21 @@ class MeetingFragment : BaseFragment<MeetingFragmentViewModel>(), MeetingCallbac
             viewModel.saveEvent(calendar)
         }
         meetingBackBtn.setOnClickListener {
-            (activity as BaseNavigationActivity<*>).onBackPressed()
+            activity?.onBackPressed()
         }
     }
 
     override fun subscribeToViewModel() {
-        viewModel.eventAdded.observe(this, Observer {
-
+        viewModel.eventAdded.observe(this, Observer { event ->
+            activity
+                ?.supportFragmentManager
+                ?.fragments
+                ?.firstOrNull {
+                    it is CalendarFragment
+                }?.let {
+                    (it as CalendarFragment).eventAdded(event)
+                }
+            activity?.onBackPressed()
         })
     }
 }

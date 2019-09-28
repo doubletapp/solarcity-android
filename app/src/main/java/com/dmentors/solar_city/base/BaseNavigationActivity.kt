@@ -1,14 +1,12 @@
 package com.dmentors.solar_city.base
 
-import android.graphics.Color
 import android.os.Bundle
-import android.view.View
-import android.view.WindowManager
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.dmentors.solar_city.R
 import com.dmentors.solar_city.presentation.blog.BlogFragment
+import com.dmentors.solar_city.presentation.chat.ChatsFragment
 import com.dmentors.solar_city.presentation.profile.ProfileFragment
 import kotlinx.android.synthetic.main.activity_navigation.*
 import kotlinx.android.synthetic.main.navigationdrawer.*
@@ -21,7 +19,7 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
     }
 
     protected abstract fun getFragment(): Fragment
-    open fun getFragmentContainerId(): Int = R.id.fragment_container
+    protected abstract fun getFragmentContainerId(): Int
 
     override fun getLayoutId(): Int = R.layout.activity_navigation
 
@@ -37,13 +35,6 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
         titlebarMenu.setOnClickListener {
             onMenuClicked()
         }
-        window.apply {
-            clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
-            addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-            decorView.systemUiVisibility =
-                decorView.systemUiVisibility or View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
-            statusBarColor = Color.TRANSPARENT
-        }
         navigationProfile.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
@@ -58,12 +49,19 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
                 .commitNow()
             closeDrawer()
         }
+        navigationChat.setOnClickListener {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(getFragmentContainerId(), ChatsFragment.newInstance())
+                .commitNow()
+            closeDrawer()
+        }
     }
 
-    fun replaceFragment(fragment: Fragment, containerId: Int, tag: String) {
+    fun replaceFragment(fragment: Fragment, tag: String) {
         supportFragmentManager
             .beginTransaction()
-            .replace(containerId, fragment, tag)
+            .replace(getFragmentContainerId(), fragment, tag)
             .addToBackStack(BACK_STACK)
             .commit()
     }

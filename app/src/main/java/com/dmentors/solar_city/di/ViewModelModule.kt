@@ -6,6 +6,8 @@ import com.dmentors.solar_city.domain.main.MainInteractor
 import com.dmentors.solar_city.domain.signIn.SignInInteractor
 import com.dmentors.solar_city.presentation.calendar.CalendarViewModel
 import com.dmentors.solar_city.presentation.blog.BlogViewModel
+import com.dmentors.solar_city.presentation.chat.ChatViewModel
+import com.dmentors.solar_city.presentation.chat.ChatsViewModel
 import com.dmentors.solar_city.presentation.main.MainViewModel
 import com.dmentors.solar_city.presentation.meeting.MeetingFragmentViewModel
 import com.dmentors.solar_city.presentation.meeting.MeetingSelectionViewModel
@@ -68,6 +70,18 @@ class ViewModelModule {
     @ViewModelKey(BlogViewModel::class)
     fun bindBlogViewModel(): ViewModel =
         BlogViewModel()
+
+    @Provides
+    @IntoMap
+    @ViewModelKey(ChatsViewModel::class)
+    fun bindChatsViewModel(): ViewModel =
+        ChatsViewModel()
+
+    @Provides
+    @IntoMap
+    @ViewModelKey(ChatViewModel::class)
+    fun bindChatViewModel(): ViewModel =
+        ChatViewModel()
 
     @Provides
     @IntoMap

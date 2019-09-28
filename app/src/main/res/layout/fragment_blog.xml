@@ -9,8 +9,7 @@
         android:id="@+id/blogLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:clipToPadding="false"
-        android:paddingTop="24dp">
+        android:clipToPadding="false">
 
         <TextView
             android:id="@+id/blogTitle"
