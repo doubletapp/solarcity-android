@@ -10,6 +10,7 @@ import com.dmentors.solar_city.base.BaseNavigationActivity
 import com.dmentors.solar_city.base.GlideApp
 import com.dmentors.solar_city.presentation.calendar.CalendarFragment
 import com.dmentors.solar_city.presentation.main.MainActivity
+import com.dmentors.solar_city.presentation.reports.ReportsFragment
 import kotlinx.android.synthetic.main.fragment_profile.*
 
 class ProfileFragment : BaseFragment<ProfileViewModel>() {
@@ -30,8 +31,17 @@ class ProfileFragment : BaseFragment<ProfileViewModel>() {
             (activity as MainActivity)
                 .replaceFragment(
                     CalendarFragment.newInstance(),
-                    (activity as BaseNavigationActivity<*>).getFragmentContainerId(),
+                    android.R.id.content,
                     CalendarFragment.TAG
+                )
+        }
+
+        profileHistoryButton.setOnClickListener {
+            (activity as BaseNavigationActivity<*>)
+                .replaceFragment(
+                    ReportsFragment(),
+                    android.R.id.content,
+                    ReportsFragment.TAG
                 )
         }
     }

@@ -6,6 +6,7 @@ import com.dmentors.solar_city.presentation.meeting.MeetingSelectionFragment
 import com.dmentors.solar_city.presentation.meeting.NewMeetingFragment
 import com.dmentors.solar_city.presentation.blog.BlogFragment
 import com.dmentors.solar_city.presentation.profile.ProfileFragment
+import com.dmentors.solar_city.presentation.reports.ReportsFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -30,4 +31,7 @@ abstract class FragmentBindingModule {
 
     @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
     abstract fun bindBlogFragment(): BlogFragment
+
+    @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
+    abstract fun bindReportsFragment(): ReportsFragment
 }

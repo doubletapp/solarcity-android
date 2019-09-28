@@ -91,11 +91,4 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
     protected fun unBlockDrawer() {
         navigationDrawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_OPEN)
     }
-
-    override fun onBackPressed() {
-        if (supportFragmentManager.findFragmentById(getFragmentContainerId()) != null
-            && (supportFragmentManager.findFragmentById(getFragmentContainerId()) as BaseFragment<*>).onBackPressed()) {
-            super.onBackPressed()
-        }
-    }
 }

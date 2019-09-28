@@ -9,6 +9,8 @@ import com.dmentors.solar_city.presentation.blog.BlogFragment
 import com.dmentors.solar_city.presentation.blog.BlogViewModel
 import com.dmentors.solar_city.presentation.profile.ProfileFragment
 import com.dmentors.solar_city.presentation.profile.ProfileViewModel
+import com.dmentors.solar_city.presentation.reports.ReportsFragment
+import com.dmentors.solar_city.presentation.reports.ReportsViewModel
 import dagger.Module
 import dagger.Provides
 
@@ -56,5 +58,12 @@ class FragmentViewModelModule {
         fragment: BlogFragment
     ): BlogViewModel =
         ViewModelProviders.of(fragment, viewModelFactory).get(BlogViewModel::class.java)
+
+    @Provides
+    fun provideReportViewModel(
+        viewModelFactory: ViewModelFactory,
+        fragment: ReportsFragment
+    ): ReportsViewModel =
+        ViewModelProviders.of(fragment, viewModelFactory).get(ReportsViewModel::class.java)
 
 }
