@@ -11,6 +11,7 @@ import com.dmentors.solar_city.R
 import com.dmentors.solar_city.base.GlideApp
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.item_story_board.*
+import kotlinx.android.synthetic.main.item_story_board.view.*
 
 class StoryBoardAdapter(
     private val itemClick: (BlogStoryBoardItem) -> Unit,

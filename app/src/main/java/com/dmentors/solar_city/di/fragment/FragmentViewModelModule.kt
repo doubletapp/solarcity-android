@@ -2,10 +2,11 @@ package com.dmentors.solar_city.di.fragment
 
 import androidx.lifecycle.ViewModelProviders
 import com.dmentors.solar_city.di.ViewModelFactory
+import com.dmentors.solar_city.presentation.calendar.CalendarFragment
+import com.dmentors.solar_city.presentation.calendar.CalendarViewModel
+import com.dmentors.solar_city.presentation.meeting.*
 import com.dmentors.solar_city.presentation.blog.BlogFragment
 import com.dmentors.solar_city.presentation.blog.BlogViewModel
-import com.dmentors.solar_city.presentation.just.JustViewModel
-import com.dmentors.solar_city.presentation.just.JustFragment
 import com.dmentors.solar_city.presentation.profile.ProfileFragment
 import com.dmentors.solar_city.presentation.profile.ProfileViewModel
 import dagger.Module
@@ -15,11 +16,32 @@ import dagger.Provides
 class FragmentViewModelModule {
 
     @Provides
-    fun provideJustViewModel(
+    fun provideMeetingFragmetnViewModel(
         viewModelFactory: ViewModelFactory,
-        justFragment: JustFragment
-    ): JustViewModel =
-        ViewModelProviders.of(justFragment, viewModelFactory).get(JustViewModel::class.java)
+        fragment: MeetingFragment
+    ): MeetingFragmentViewModel =
+        ViewModelProviders.of(fragment, viewModelFactory).get(MeetingFragmentViewModel::class.java)
+
+    @Provides
+    fun provideMeetingSelectionViewModel(
+        viewModelFactory: ViewModelFactory,
+        fragment: MeetingSelectionFragment
+    ): MeetingSelectionViewModel =
+        ViewModelProviders.of(fragment, viewModelFactory).get(MeetingSelectionViewModel::class.java)
+
+    @Provides
+    fun provideNewMeetingViewModel(
+        viewModelFactory: ViewModelFactory,
+        fragment: NewMeetingFragment
+    ): NewMeetingViewModel =
+        ViewModelProviders.of(fragment, viewModelFactory).get(NewMeetingViewModel::class.java)
+
+    @Provides
+    fun provideCalendarViewModel(
+        viewModelFactory: ViewModelFactory,
+        fragment: CalendarFragment
+    ): CalendarViewModel =
+        ViewModelProviders.of(fragment, viewModelFactory).get(CalendarViewModel::class.java)
 
     @Provides
     fun provideProfileViewModel(
@@ -34,4 +56,5 @@ class FragmentViewModelModule {
         fragment: BlogFragment
     ): BlogViewModel =
         ViewModelProviders.of(fragment, viewModelFactory).get(BlogViewModel::class.java)
+
 }

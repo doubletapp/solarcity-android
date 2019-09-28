@@ -5,11 +5,13 @@ import androidx.lifecycle.MutableLiveData
 import com.dmentors.solar_city.ArchApplication
 import com.dmentors.solar_city.R
 import com.dmentors.solar_city.base.BaseViewModel
+import com.dmentors.solar_city.domain.signIn.SignInInteractor
+import io.reactivex.android.schedulers.AndroidSchedulers
 import javax.inject.Inject
 
-class SignInViewModel
-@Inject
-constructor() : BaseViewModel() {
+class SignInViewModel(
+    private val interactor: SignInInteractor
+) : BaseViewModel() {
 
     private val mutableRegisterData = MutableLiveData<String>()
     val registerData: LiveData<String> get() = mutableRegisterData
@@ -23,7 +25,15 @@ constructor() : BaseViewModel() {
     fun login(code: String) {
         //TODO
         if (code == "1111") {
-            mutableLoginData.postValue(true)
+            addDisposable(
+                interactor.login(code)
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe({
+                        mutableLoginData.postValue(it)
+                    }, {
+                        mutableError.postValue(it)
+                    })
+            )
         } else {
             mutableError.postValue(Throwable(ArchApplication.appContext?.getString(R.string.sign_in_wrong_code)))
         }

@@ -5,11 +5,11 @@ import android.content.Intent
 import androidx.fragment.app.Fragment
 import com.dmentors.solar_city.R
 import com.dmentors.solar_city.base.BaseNavigationActivity
-import com.dmentors.solar_city.presentation.profile.ProfileFragment
+import com.dmentors.solar_city.presentation.calendar.CalendarFragment
 
 class MainActivity : BaseNavigationActivity<MainViewModel>() {
 
-    override fun getFragment(): Fragment = ProfileFragment()
+    override fun getFragment(): Fragment = CalendarFragment.newInstance()
 
     override fun getFragmentContainerId(): Int = R.id.fragment_container
 

@@ -19,7 +19,7 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
     }
 
     protected abstract fun getFragment(): Fragment
-    protected abstract fun getFragmentContainerId(): Int
+    protected open fun getFragmentContainerId(): Int = R.id.fragment_container
 
     override fun getLayoutId(): Int = R.layout.activity_navigation
 
@@ -44,10 +44,10 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
         }
     }
 
-    fun replaceFragment(fragment: Fragment, tag: String) {
+    fun replaceFragment(fragment: Fragment, containerId: Int, tag: String) {
         supportFragmentManager
             .beginTransaction()
-            .replace(getFragmentContainerId(), fragment, tag)
+            .replace(containerId, fragment, tag)
             .addToBackStack(BACK_STACK)
             .commit()
     }
