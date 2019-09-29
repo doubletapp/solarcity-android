@@ -24,7 +24,7 @@ class ProfileFragment : BaseFragment<ProfileViewModel>() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         GlideApp.with(view)
-            .load("https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/07/21/10/avatar-neytiri.jpg")
+            .load("https://sun9-18.userapi.com/c628131/v628131898/264c9/qzRNvOY07WM.jpg")
             .centerCrop()
             .into(profileAvatar)
     }
