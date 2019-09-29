@@ -8,6 +8,7 @@ import dagger.Module
 import dagger.Provides
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.Request
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
@@ -21,9 +22,12 @@ import javax.inject.Singleton
 class RetrofitCreatorModule {
 
     companion object {
-        private const val DUMMY_URL = "https://dummy.dummy"
+        private const val DUMMY_URL = "http://solarcity.doubletapp.ru/api/"
         private const val TIMEOUT_SECONDS = 5L
         private const val LOGGING_INTERCEPTOR = "loggingInterceptor"
+        private const val AUTH_HEADER_NAME = "Authentication"
+        private const val AUTH_TOKEN_VALUE = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJlbWFpbCI6ImxvZ2luIn0.tqliocnyFcvsrY__TIL7vGS6H-6oaPPe9XQ07Sr_lhs"
+        private const val AUTH_TOKEN_PREFIX = "JWT "
     }
 
     @Provides
@@ -55,8 +59,23 @@ class RetrofitCreatorModule {
             .addInterceptor(loggingInterceptor)
             .readTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
             .writeTimeout(TIMEOUT_SECONDS, TimeUnit.SECONDS)
+            .addInterceptor {
+                return@addInterceptor it.proceed(
+                    it.request()
+                        .newBuilder()
+                        .apply {
+                            addAuthToken(this)
+                        }
+                        .build()
+                )
+            }
             .hostnameVerifier { hostname, session -> hostname.equals(session.peerHost, ignoreCase = true) }
             .build()
+
+    private fun addAuthToken(requestBuilder: Request.Builder) {
+            requestBuilder
+                .addHeader(AUTH_HEADER_NAME, AUTH_TOKEN_PREFIX + AUTH_TOKEN_VALUE)
+    }
 
     @Provides
     @Singleton
