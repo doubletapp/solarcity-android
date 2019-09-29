@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <TextView
+        android:id="@+id/messageSelfText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Плохая успеваемость"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:layout_gravity="end"
+        app:layout_constraintHorizontal_bias="1.0"
+        android:layout_marginHorizontal="22dp"
+        android:drawableEnd="@drawable/ic_check_small"
+        android:drawablePadding="15dp"
+        android:gravity="bottom"
+        android:lineSpacingExtra="4sp"
+        android:paddingVertical="15dp"
+        android:paddingHorizontal="19dp"
+        android:background="@drawable/bg_message_self"/>
+
+</FrameLayout>

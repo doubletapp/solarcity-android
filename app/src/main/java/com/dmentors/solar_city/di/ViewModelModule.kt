@@ -1,6 +1,7 @@
 package com.dmentors.solar_city.di
 
 import androidx.lifecycle.ViewModel
+import com.dmentors.solar_city.domain.chat.ChatInteractor
 import com.dmentors.solar_city.domain.just.JustInteractor
 import com.dmentors.solar_city.domain.main.MainInteractor
 import com.dmentors.solar_city.presentation.blog.BlogViewModel
@@ -50,6 +51,6 @@ class ViewModelModule {
     @Provides
     @IntoMap
     @ViewModelKey(ChatViewModel::class)
-    fun bindChatViewModel(): ViewModel =
-        ChatViewModel()
+    fun bindChatViewModel(chatInteractor: ChatInteractor): ViewModel =
+        ChatViewModel(chatInteractor)
 }
