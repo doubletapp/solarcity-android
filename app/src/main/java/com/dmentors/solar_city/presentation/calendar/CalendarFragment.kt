@@ -29,6 +29,8 @@ class CalendarFragment : BaseFragment<CalendarViewModel>() {
     override fun initViews() {
         calendarView.showCurrentMonthPage()
         calendarView.setOnDayClickListener {
+            calendarAddMeeting.isEnabled =
+                it.calendar.timeInMillis >= Calendar.getInstance().timeInMillis
             viewModel.onDayClicked(it.calendar)
         }
         calendarAddMeeting.setOnClickListener {
