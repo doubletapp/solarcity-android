@@ -9,6 +9,7 @@ import com.dmentors.solar_city.base.BaseFragment
 import com.dmentors.solar_city.presentation.blog.adapter.BlogAdapter
 import com.dmentors.solar_city.presentation.calendar.CalendarFragment
 import com.dmentors.solar_city.presentation.main.MainActivity
+import com.dmentors.solar_city.presentation.stories.StoriesFragment
 import com.dmentors.solar_city.utils.Mocker
 import kotlinx.android.synthetic.main.fragment_blog.*
 
@@ -20,7 +21,16 @@ class BlogFragment : BaseFragment<BlogViewModel>() {
         fun newInstance() = BlogFragment()
     }
 
-    private val blogAdapter by lazy { BlogAdapter({}, {}, {}) }
+    private val blogAdapter by lazy {
+        BlogAdapter({
+            activity
+                ?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(android.R.id.content, StoriesFragment())
+                ?.addToBackStack(StoriesFragment.TAG)
+                ?.commit()
+        }, {}, {})
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
