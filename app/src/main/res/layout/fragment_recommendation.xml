@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/blogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="68dp"
+        android:fontFamily="@font/geometria_medium"
+        android:text="Рекомендации"
+        android:textColor="@color/textColorGray"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/blogRecycler"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="14dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/blogTitle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:paddingTop="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:fontFamily="@font/geometria_medium"
+                    android:text="A"
+                    android:textColor="@color/textColorGray"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="3dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/dotted_line" />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:clipToPadding="false"
+                app:cardCornerRadius="15dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="17dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+
+                    <TextView
+                        android:id="@+id/recommendationCardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geometria_medium"
+                        android:padding="20dp"
+                        android:textColor="@color/textColorGray"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="Аквапарк &quot;Лимпопо&quot;" />
+
+                    <ImageView
+                        android:id="@+id/recommendationCardAvatar"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="19dp"
+                        android:scaleX="4"
+                        android:scaleY="4"
+                        android:src="@drawable/ic_recommendation_map"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationCardTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/recommendationCardTitle" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="3dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/dotted_line"
+                        app:layout_constraintEnd_toEndOf="@id/recommendationCardAvatar"
+                        app:layout_constraintStart_toStartOf="@id/recommendationCardTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <TextView
+                        android:id="@+id/recommendationHoursTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/geometria_regular"
+                        android:text="Часы работы"
+                        android:textColor="@color/textColorLightGray"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <View
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:background="@drawable/desert_round"
+                        app:layout_constraintStart_toEndOf="@id/recommendationHoursTitle"
+                        app:layout_constraintEnd_toStartOf="@id/recommendationHours"
+                        app:layout_constraintTop_toTopOf="@id/recommendationHours"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationHours"/>
+
+                    <TextView
+                        android:id="@+id/recommendationHours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/geometria_regular"
+                        android:text="10:00 - 22:00"
+                        android:textColor="@color/textColorLightGray"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/recommendationHoursTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <ImageView
+                        android:id="@+id/recommendationComment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/comment"
+                        app:layout_constraintStart_toStartOf="@id/recommendationHoursTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationHoursTitle" />
+
+                    <ImageView
+                        android:id="@+id/recommendationStar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:src="@drawable/ic_star"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationComment"
+                        app:layout_constraintStart_toEndOf="@id/recommendationComment"
+                        app:layout_constraintTop_toTopOf="@id/recommendationComment" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:lineSpacingExtra="4sp"
+                        android:text="5"
+                        android:textColor="@color/desert"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationStar"
+                        app:layout_constraintStart_toEndOf="@id/recommendationStar"
+                        app:layout_constraintTop_toTopOf="@id/recommendationStar" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:paddingTop="20dp"
+                android:paddingBottom="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:fontFamily="@font/geometria_medium"
+                    android:text="Б"
+                    android:textColor="@color/textColorGray"
+                    android:textSize="16sp" />
+
+                <ImageView
+                    android:layout_width="0dp"
+                    android:layout_height="3dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="12dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/dotted_line" />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:clipToPadding="false"
+                app:cardCornerRadius="15dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="17dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+
+                    <TextView
+                        android:id="@+id/recommendationCardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geometria_medium"
+                        android:padding="20dp"
+                        android:textColor="@color/textColorGray"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="Боулинг клуб «Луна»" />
+
+                    <ImageView
+                        android:id="@+id/recommendationCardAvatar"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="19dp"
+                        android:scaleX="4"
+                        android:scaleY="4"
+                        android:src="@drawable/ic_recommendation_map"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationCardTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/recommendationCardTitle" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="3dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/dotted_line"
+                        app:layout_constraintEnd_toEndOf="@id/recommendationCardAvatar"
+                        app:layout_constraintStart_toStartOf="@id/recommendationCardTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <TextView
+                        android:id="@+id/recommendationHoursTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/geometria_regular"
+                        android:text="Часы работы"
+                        android:textColor="@color/textColorLightGray"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <View
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:background="@drawable/desert_round"
+                        app:layout_constraintStart_toEndOf="@id/recommendationHoursTitle"
+                        app:layout_constraintEnd_toStartOf="@id/recommendationHours"
+                        app:layout_constraintTop_toTopOf="@id/recommendationHours"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationHours"/>
+
+                    <TextView
+                        android:id="@+id/recommendationHours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/geometria_regular"
+                        android:text="10:00 - 22:00"
+                        android:textColor="@color/textColorLightGray"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/recommendationHoursTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <ImageView
+                        android:id="@+id/recommendationComment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/comment"
+                        app:layout_constraintStart_toStartOf="@id/recommendationHoursTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationHoursTitle" />
+
+                    <ImageView
+                        android:id="@+id/recommendationStar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:src="@drawable/ic_star"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationComment"
+                        app:layout_constraintStart_toEndOf="@id/recommendationComment"
+                        app:layout_constraintTop_toTopOf="@id/recommendationComment" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:lineSpacingExtra="4sp"
+                        android:text="5"
+                        android:textColor="@color/desert"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationStar"
+                        app:layout_constraintStart_toEndOf="@id/recommendationStar"
+                        app:layout_constraintTop_toTopOf="@id/recommendationStar" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:clipToPadding="false"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="17dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+
+                    <TextView
+                        android:id="@+id/recommendationCardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geometria_medium"
+                        android:padding="20dp"
+                        android:textColor="@color/textColorGray"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="Бильярдный зал" />
+
+                    <ImageView
+                        android:id="@+id/recommendationCardAvatar"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="19dp"
+                        android:scaleX="4"
+                        android:scaleY="4"
+                        android:src="@drawable/ic_recommendation_map"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationCardTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/recommendationCardTitle" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="3dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/dotted_line"
+                        app:layout_constraintEnd_toEndOf="@id/recommendationCardAvatar"
+                        app:layout_constraintStart_toStartOf="@id/recommendationCardTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <TextView
+                        android:id="@+id/recommendationHoursTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/geometria_regular"
+                        android:text="Часы работы"
+                        android:textColor="@color/textColorLightGray"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <View
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:background="@drawable/desert_round"
+                        app:layout_constraintStart_toEndOf="@id/recommendationHoursTitle"
+                        app:layout_constraintEnd_toStartOf="@id/recommendationHours"
+                        app:layout_constraintTop_toTopOf="@id/recommendationHours"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationHours"/>
+
+                    <TextView
+                        android:id="@+id/recommendationHours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/geometria_regular"
+                        android:text="10:00 - 22:00"
+                        android:textColor="@color/textColorLightGray"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/recommendationHoursTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <ImageView
+                        android:id="@+id/recommendationComment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/comment"
+                        app:layout_constraintStart_toStartOf="@id/recommendationHoursTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationHoursTitle" />
+
+                    <ImageView
+                        android:id="@+id/recommendationStar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:src="@drawable/ic_star"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationComment"
+                        app:layout_constraintStart_toEndOf="@id/recommendationComment"
+                        app:layout_constraintTop_toTopOf="@id/recommendationComment" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:lineSpacingExtra="4sp"
+                        android:text="5"
+                        android:textColor="@color/desert"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationStar"
+                        app:layout_constraintStart_toEndOf="@id/recommendationStar"
+                        app:layout_constraintTop_toTopOf="@id/recommendationStar" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:clipToPadding="false"
+                android:layout_marginTop="20dp"
+                app:cardCornerRadius="15dp"
+                android:layout_marginBottom="20dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:paddingBottom="17dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:background="?attr/selectableItemBackgroundBorderless">
+
+                    <TextView
+                        android:id="@+id/recommendationCardTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geometria_medium"
+                        android:padding="20dp"
+                        android:textColor="@color/textColorGray"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:text="Бильярдный зал" />
+
+                    <ImageView
+                        android:id="@+id/recommendationCardAvatar"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginEnd="19dp"
+                        android:scaleX="4"
+                        android:scaleY="4"
+                        android:src="@drawable/ic_recommendation_map"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationCardTitle"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@id/recommendationCardTitle" />
+
+                    <ImageView
+                        android:layout_width="0dp"
+                        android:layout_height="3dp"
+                        android:layout_marginStart="20dp"
+                        android:src="@drawable/dotted_line"
+                        app:layout_constraintEnd_toEndOf="@id/recommendationCardAvatar"
+                        app:layout_constraintStart_toStartOf="@id/recommendationCardTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <TextView
+                        android:id="@+id/recommendationHoursTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/geometria_regular"
+                        android:text="Часы работы"
+                        android:textColor="@color/textColorLightGray"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <View
+                        android:layout_width="5dp"
+                        android:layout_height="5dp"
+                        android:background="@drawable/desert_round"
+                        app:layout_constraintStart_toEndOf="@id/recommendationHoursTitle"
+                        app:layout_constraintEnd_toStartOf="@id/recommendationHours"
+                        app:layout_constraintTop_toTopOf="@id/recommendationHours"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationHours"/>
+
+                    <TextView
+                        android:id="@+id/recommendationHours"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/geometria_regular"
+                        android:text="10:00 - 22:00"
+                        android:textColor="@color/textColorLightGray"
+                        android:textSize="12sp"
+                        app:layout_constraintStart_toEndOf="@id/recommendationHoursTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationCardTitle" />
+
+                    <ImageView
+                        android:id="@+id/recommendationComment"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:src="@drawable/comment"
+                        app:layout_constraintStart_toStartOf="@id/recommendationHoursTitle"
+                        app:layout_constraintTop_toBottomOf="@id/recommendationHoursTitle" />
+
+                    <ImageView
+                        android:id="@+id/recommendationStar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:src="@drawable/ic_star"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationComment"
+                        app:layout_constraintStart_toEndOf="@id/recommendationComment"
+                        app:layout_constraintTop_toTopOf="@id/recommendationComment" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:lineSpacingExtra="4sp"
+                        android:text="5"
+                        android:textColor="@color/desert"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@id/recommendationStar"
+                        app:layout_constraintStart_toEndOf="@id/recommendationStar"
+                        app:layout_constraintTop_toTopOf="@id/recommendationStar" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <ImageView
+        android:id="@+id/blogSearch"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="6dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_search"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="ContentDescription" />
+
+    <ImageView
+        android:id="@+id/blogFilter"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:clickable="true"
+        android:focusable="true"
+        android:padding="10dp"
+        android:src="@drawable/ic_filter"
+        app:layout_constraintBottom_toBottomOf="@id/blogSearch"
+        app:layout_constraintEnd_toStartOf="@id/blogSearch"
+        app:layout_constraintTop_toTopOf="@+id/blogSearch"
+        tools:ignore="ContentDescription" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

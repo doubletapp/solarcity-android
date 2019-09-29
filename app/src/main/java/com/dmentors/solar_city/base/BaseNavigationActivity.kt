@@ -11,6 +11,7 @@ import com.dmentors.solar_city.R
 import com.dmentors.solar_city.presentation.blog.BlogFragment
 import com.dmentors.solar_city.presentation.chat.ChatsFragment
 import com.dmentors.solar_city.presentation.profile.ProfileFragment
+import com.dmentors.solar_city.presentation.recommendation.RecommendationFragment
 import kotlinx.android.synthetic.main.activity_navigation.*
 import kotlinx.android.synthetic.main.navigationdrawer.*
 import kotlinx.android.synthetic.main.titlebar.*
@@ -56,6 +57,13 @@ abstract class BaseNavigationActivity<T : BaseViewModel> : BaseActivity<T>() {
             supportFragmentManager
                 .beginTransaction()
                 .replace(getFragmentContainerId(), ChatsFragment.newInstance())
+                .commitNow()
+            closeDrawer()
+        }
+        navigationRecommend.setOnClickListener {
+            supportFragmentManager
+                .beginTransaction()
+                .replace(getFragmentContainerId(), RecommendationFragment.newInstance())
                 .commitNow()
             closeDrawer()
         }
