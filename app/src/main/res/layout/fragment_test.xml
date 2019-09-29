@@ -551,17 +551,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_horizontal"
                 android:animateLayoutChanges="true"
+                android:gravity="center_horizontal"
                 android:orientation="vertical">
 
                 <Button
                     android:id="@+id/testPrevBtn"
                     style="@style/ButtonDesertLarge"
                     android:layout_width="270dp"
-                    android:text="Предыдущий шаг"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
+                    android:text="Предыдущий шаг"
                     android:textAllCaps="false"
                     android:visibility="gone" />
 
@@ -579,5 +579,83 @@
         </LinearLayout>
 
     </ScrollView>
+
+    <FrameLayout
+        android:id="@+id/testFakeDialog"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/textColorLightGray"
+        android:visibility="gone"
+        android:clickable="true">
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginHorizontal="16dp"
+            app:cardCornerRadius="20dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="36dp"
+                    android:layout_marginBottom="16dp"
+                    android:fontFamily="@font/geometria_medium"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="6sp"
+                    android:text="Поздравляем!"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="20dp"
+                    android:fontFamily="@font/geometria_regular"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="4sp"
+                    android:text="Вы успешно прошли обучение и становитесь наставником.
+Мы готовы подобрать вам ребенка, однако сперва заполните ваши предпочтения, чтобы мы подобрали вам идельную пару."
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+                <Button
+                    style="@style/ButtonDesertLarge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="15dp"
+                    android:enabled="false"
+                    android:text="Приступить"
+                    android:textAllCaps="false" />
+
+                <TextView
+                    android:id="@+id/testFakeDialogNotNowBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="35dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:fontFamily="@font/geometria_regular"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="4sp"
+                    android:text="Заполнить позже"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp" />
+
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
