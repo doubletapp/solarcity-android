@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:animateLayoutChanges="true">
+
+                <LinearLayout
+                    android:id="@+id/testFirstStep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:orientation="vertical"
+                    android:visibility="visible">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geometria_medium"
+                        android:lineSpacingExtra="4sp"
+                        android:text="Шаг 1"
+                        android:textColor="@color/terracota"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/geometria_medium"
+                        android:text="Общие сведения"
+                        android:textSize="24sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:drawableStart="@drawable/ic_star"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:text="ФИО"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:hint="ФИО"
+                                android:text="Баркова Валерия" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:drawableStart="@drawable/ic_star"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:text="Адрес регистрации"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:hint="Введите адрес"
+                                android:text="Невский проспект 1" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:drawableStart="@drawable/ic_star"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:text="Адрес фактического проживания"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:hint="Введите адрес"
+                                android:text="Невский проспект 2" />
+
+                        </FrameLayout>
+
+                        <com.dmentors.solar_city.view.CheckBox
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="Совпадает с адресом регистрации" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:drawableStart="@drawable/ic_star"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:text="Контактный телефон"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:hint="Введите номер телефона"
+                                android:text="+7 111 111 11 11" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:drawableStart="@drawable/ic_star"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:text="Электронный адрес"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:hint="Введите email"
+                                android:text="barkovavaleria@negmal.com" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:drawableStart="@drawable/ic_star"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:text="Дата рождения"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:hint="__/__/____"
+                                android:text="01/01/1990" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:drawableStart="@drawable/ic_star"
+                            android:drawablePadding="6dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:text="Гражданство"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:hint="Ваше гражданство"
+                                android:text="РФ" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/testSecondStep"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="24dp"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/geometria_medium"
+                        android:text="Опыт работы с детьми"
+                        android:textColor="@android:color/black"
+                        android:textSize="24sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:fontFamily="@font/geometria_regular"
+                        android:text="Пожалуйста, укажите ваш текущий и предыдущий опыт работы с детьми (оплачиваемая работа, волонтёрская деятельность и т.д.)"
+                        android:textColor="@color/textColorGray"
+                        android:textSize="16sp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:paddingStart="6dp"
+                            android:text="Название организации"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:hint="Введите название"
+                                android:text="ООО Дубльтуп" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:paddingStart="6dp"
+                            android:text="Контактная информация"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:hint="Введите телефон и адрес"
+                                android:text="+7 111 111 11 11, Невский проспект 3" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:paddingStart="6dp"
+                            android:text="Должность"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:hint="Введите должность"
+                                android:text="Негенеральный директор" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:paddingStart="6dp"
+                            android:text="Исполняемые обязанности"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="190dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="21dp"
+                                android:layout_marginVertical="11dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:gravity="top"
+                                android:hint="Опишите, что вы делали" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/meetingItemTypeContainer">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="6dp"
+                            android:layout_marginBottom="5dp"
+                            android:fontFamily="@font/geometria_regular"
+                            android:paddingStart="6dp"
+                            android:text="Возрастная группа детей"
+                            android:textColor="@color/textColorGray"
+                            android:textSize="14sp" />
+
+                        <FrameLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="48dp"
+                            android:background="@drawable/bg_stroke_terracote_30">
+
+                            <AutoCompleteTextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@null"
+                                android:fontFamily="@font/geometria_regular"
+                                android:hint="Введите должность" />
+
+                        </FrameLayout>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:animateLayoutChanges="true"
+                android:orientation="vertical">
+
+                <Button
+                    android:id="@+id/testPrevBtn"
+                    style="@style/ButtonDesertLarge"
+                    android:layout_width="270dp"
+                    android:text="Предыдущий шаг"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:textAllCaps="false"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/testNextBtn"
+                    style="@style/ButtonDesertLarge"
+                    android:layout_width="270dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginBottom="27dp"
+                    android:text="Следующий шаг"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
