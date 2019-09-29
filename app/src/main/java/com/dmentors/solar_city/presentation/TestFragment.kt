@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.dmentors.solar_city.R
+import com.dmentors.solar_city.base.BaseActivity
+import com.dmentors.solar_city.presentation.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_test.*
 
 class TestFragment : Fragment() {
@@ -28,7 +30,11 @@ class TestFragment : Fragment() {
 
         testNextBtn.setOnClickListener {
             if (testPrevBtn.visibility == View.VISIBLE) {
-                //TODO
+                testFakeDialog.visibility = View.VISIBLE
+                testFakeDialogNotNowBtn.setOnClickListener {
+                    MainActivity.start(activity as BaseActivity<*>)
+                    activity?.finish()
+                }
             } else {
                 testPrevBtn.visibility = View.VISIBLE
                 testFirstStep.visibility = View.GONE
