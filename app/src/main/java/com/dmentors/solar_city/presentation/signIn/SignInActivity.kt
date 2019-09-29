@@ -7,7 +7,9 @@ import com.dmentors.solar_city.R
 import com.dmentors.solar_city.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import android.net.Uri
+import android.view.KeyEvent
 import android.view.View
+import android.view.inputmethod.EditorInfo
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.dmentors.solar_city.extensions.toast
 import com.dmentors.solar_city.presentation.main.MainActivity
@@ -52,6 +54,15 @@ class SignInActivity : BaseActivity<SignInViewModel>() {
                     signInSendSmsBtn.isEnabled = !e.text().contains("_")
                 }
         )
+
+        signInPhone.setOnEditorActionListener { _, code, _ ->
+            var handled = false
+            if (code == EditorInfo.IME_ACTION_SEND) {
+                viewModel.sendSmsTo(signInPhone.text.toString())
+                handled = true
+            }
+            return@setOnEditorActionListener handled
+        }
         signInSendSmsBtn.setOnClickListener {
             viewModel.sendSmsTo(signInPhone.text.toString())
         }
@@ -66,6 +77,14 @@ class SignInActivity : BaseActivity<SignInViewModel>() {
                     signInLoginBtn.isEnabled = !e.text().contains("*")
                 }
         )
+        signInCode.setOnEditorActionListener { _, code, _ ->
+            var handled = false
+            if (code == EditorInfo.IME_ACTION_SEND) {
+                viewModel.login(signInCode.text.toString())
+                handled = true
+            }
+            return@setOnEditorActionListener handled
+        }
         signInLoginBtn.setOnClickListener {
             viewModel.login(signInCode.text.toString())
         }
