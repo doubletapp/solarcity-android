@@ -9,6 +9,7 @@ import com.dmentors.solar_city.presentation.chat.ChatViewModel
 import com.dmentors.solar_city.presentation.chat.ChatsViewModel
 import com.dmentors.solar_city.presentation.main.MainViewModel
 import com.dmentors.solar_city.presentation.profile.ProfileViewModel
+import com.dmentors.solar_city.presentation.recommendation.RecommendationViewModel
 import com.dmentors.solar_city.presentation.signIn.SignInViewModel
 import dagger.Module
 import dagger.Provides
@@ -53,4 +54,10 @@ class ViewModelModule {
     @ViewModelKey(ChatViewModel::class)
     fun bindChatViewModel(chatInteractor: ChatInteractor): ViewModel =
         ChatViewModel(chatInteractor)
+
+    @Provides
+    @IntoMap
+    @ViewModelKey(RecommendationViewModel::class)
+    fun bindRecommendationViewModel(): ViewModel =
+        RecommendationViewModel()
 }
