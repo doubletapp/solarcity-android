@@ -1,5 +1,6 @@
 package com.dmentors.solar_city.di.fragment
 
+import com.dmentors.solar_city.presentation.signIn.TestFragment
 import com.dmentors.solar_city.presentation.calendar.CalendarFragment
 import com.dmentors.solar_city.presentation.meeting.MeetingFragment
 import com.dmentors.solar_city.presentation.meeting.MeetingSelectionFragment
@@ -46,4 +47,7 @@ abstract class FragmentBindingModule {
 
     @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
     abstract fun bindReportsFragment(): ReportsFragment
+
+    @ContributesAndroidInjector(modules = [FragmentViewModelModule::class])
+    abstract fun bindTestFragment(): TestFragment
 }

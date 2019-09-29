@@ -28,7 +28,7 @@
     <string name="meeting_type_walk">Прогулка</string>
     <string name="meeting_type_talk">Беседа</string>
     <string name="meeting_type_another">Другое</string>
-    <string name="save">Сщхранить</string>
+    <string name="save">Сохранить</string>
     <string name="empty_name_error">Заполните название мероприятия</string>
     <string name="meeting_item_count_pattern">%d мероприятие</string>
 

@@ -17,6 +17,7 @@ import com.dmentors.solar_city.presentation.profile.ProfileViewModel
 import com.dmentors.solar_city.presentation.reports.ReportsViewModel
 import com.dmentors.solar_city.presentation.recommendation.RecommendationViewModel
 import com.dmentors.solar_city.presentation.signIn.SignInViewModel
+import com.dmentors.solar_city.presentation.signIn.TestViewModel
 import dagger.Module
 import dagger.Provides
 import dagger.multibindings.IntoMap
@@ -96,4 +97,12 @@ class ViewModelModule {
     @ViewModelKey(ReportsViewModel::class)
     fun bindReportsViewModel(): ViewModel =
         ReportsViewModel()
+
+    @Provides
+    @IntoMap
+    @ViewModelKey(TestViewModel::class)
+    fun bindTestViewModel(
+        interactor: SignInInteractor
+    ): ViewModel =
+        TestViewModel(interactor)
 }

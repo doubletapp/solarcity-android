@@ -17,6 +17,8 @@ import com.dmentors.solar_city.presentation.reports.ReportsFragment
 import com.dmentors.solar_city.presentation.reports.ReportsViewModel
 import com.dmentors.solar_city.presentation.recommendation.RecommendationFragment
 import com.dmentors.solar_city.presentation.recommendation.RecommendationViewModel
+import com.dmentors.solar_city.presentation.signIn.TestFragment
+import com.dmentors.solar_city.presentation.signIn.TestViewModel
 import dagger.Module
 import dagger.Provides
 
@@ -92,4 +94,11 @@ class FragmentViewModelModule {
         fragment: RecommendationFragment
     ): RecommendationViewModel =
         ViewModelProviders.of(fragment, viewModelFactory).get(RecommendationViewModel::class.java)
+
+    @Provides
+    fun provideTestViewModel(
+        viewModelFactory: ViewModelFactory,
+        fragment: TestFragment
+    ): TestViewModel =
+        ViewModelProviders.of(fragment, viewModelFactory).get(TestViewModel::class.java)
 }

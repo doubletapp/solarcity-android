@@ -32,14 +32,14 @@ class CalendarFragment : BaseFragment<CalendarViewModel>() {
             viewModel.onDayClicked(it.calendar)
         }
         calendarAddMeeting.setOnClickListener {
-            childFragmentManager
-                .beginTransaction()
-                .replace(
-                    R.id.fragment_container,
-                    MeetingFragment()
-                )
-                .addToBackStack(BACKSTACK_CALENDAR)
-                .commit()
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(android.R.id.content, MeetingFragment.newInstance(calendarView.firstSelectedDate))
+                ?.addToBackStack(BACKSTACK_CALENDAR)
+                ?.commit()
+        }
+        calendarBackBtn.setOnClickListener {
+            activity?.onBackPressed()
         }
     }
 
@@ -69,7 +69,7 @@ class CalendarFragment : BaseFragment<CalendarViewModel>() {
                 } else {
                     calendarEventActionBtn.text = "Отчет"
                     calendarEventActionBtn.setOnClickListener {
-                        toast("Функционал в разработке")
+
                     }
                 }
             } ?: run {

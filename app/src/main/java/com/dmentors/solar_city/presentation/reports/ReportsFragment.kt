@@ -103,8 +103,10 @@ class ReportsFragment : BaseFragment<ReportsViewModel>() {
             )
         }
         reportAddBtn.setOnClickListener {
-
+            activity?.onBackPressed()
         }
-
+        reportBackBtn.setOnClickListener {
+            activity?.onBackPressed()
+        }
     }
 }

@@ -7,12 +7,10 @@ import com.dmentors.solar_city.R
 import com.dmentors.solar_city.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_sign_in.*
 import android.net.Uri
-import android.view.KeyEvent
 import android.view.View
 import android.view.inputmethod.EditorInfo
 import com.jakewharton.rxbinding2.widget.RxTextView
 import com.dmentors.solar_city.extensions.toast
-import com.dmentors.solar_city.presentation.TestFragment
 import com.dmentors.solar_city.presentation.main.MainActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import java.util.concurrent.TimeUnit
@@ -40,7 +38,9 @@ class SignInActivity : BaseActivity<SignInViewModel>() {
         signInRegisterBtn.setOnClickListener {
             supportFragmentManager
                 .beginTransaction()
-                .replace(android.R.id.content, TestFragment())
+                .replace(android.R.id.content,
+                    TestFragment()
+                )
                 .commit()
         }
         signInShowPhoneInputBtn.setOnClickListener {

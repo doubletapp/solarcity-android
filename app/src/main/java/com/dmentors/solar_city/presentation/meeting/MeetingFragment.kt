@@ -61,7 +61,7 @@ class MeetingFragment : BaseFragment<MeetingFragmentViewModel>(), MeetingCallbac
 
     override fun subscribeToViewModel() {
         viewModel.eventAdded.observe(this, Observer {
-
+            (activity as BaseNavigationActivity<*>).onBackPressed()
         })
     }
 }

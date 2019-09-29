@@ -28,12 +28,11 @@ class ProfileFragment : BaseFragment<ProfileViewModel>() {
             .into(profileAvatar)
 
         profileCalendarButton.setOnClickListener {
-            (activity as MainActivity)
-                .replaceFragment(
-                    CalendarFragment.newInstance(),
-                    android.R.id.content,
-                    CalendarFragment.TAG
-                )
+            activity?.supportFragmentManager
+                ?.beginTransaction()
+                ?.replace(android.R.id.content, CalendarFragment.newInstance())
+                ?.addToBackStack(null)
+                ?.commit()
         }
 
         profileHistoryButton.setOnClickListener {
